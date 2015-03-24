@@ -307,7 +307,7 @@ micControllers.controller('PresenterControl', ['$scope', '$sce', 'presenterRTC',
 micControllers.config(['baseRTCProvider', function(baseRTCProvider) {
   console.log('hey! in the config');
   
-  baseRTCProvider.setSignalServer('ws://5df1e886.ngrok.com');
+  baseRTCProvider.setSignalServer('ws://6a590237.ngrok.com');
   // baseRTCProvider.setSignalServer('ws://localhost:3434'); //normally must be set up by app
   // baseRTCProvider.setSignalServer('ws://307a1d89.ngrok.com'); //normally must be set up by app
 
