@@ -49,13 +49,17 @@ app.use(session({saveUninitialized: true, resave: true, secret: 'this is our sec
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Set the port and url for the server
+var servePort = process.env.PORT || 8000;
+var app_url = process.env.APP_URL || 'localhost:' + servePort;
+
 // Use Github authentication, githubApp is ignored in the repo
 // callback url can be http://localhost:8000/auth/github/callback
 // Use ngrok url for demo
 passport.use(new GithubStrategy({
   clientID: githubApp.clientID,
   clientSecret: githubApp.secret,
-  callbackURL: 'http://5df1e886.ngrok.com/auth/github/callback'
+  callbackURL:'http://' + app_url + '/auth/github/callback'
 }, function(accessToken, refreshToken, profile, done){
   console.log('accessToken', accessToken);
   console.log('refreshToken', refreshToken);
